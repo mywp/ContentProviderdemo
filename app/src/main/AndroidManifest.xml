@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.example.scorpio.sqlitedemo"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.example.scorpio.sqlitedemo1.test">
+        
+    </instrumentation>
+    <permission android:name="aa.bb.cc.read" ></permission>
+    <permission android:name="aa.bb.cc.write" ></permission>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        
+        <uses-library android:name="android.test.runner"/>
+        <activity android:name="com.example.scorpio.sqlitedemo1.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        
+        <provider
+            android:authorities="com.example.scorpio.sqlitedemo1.providers.PersonContentProvider"
+            android:name="com.example.scorpio.sqlitedemo1.providers.PersonContentProvider"
+            android:readPermission="aa.bb.cc.read"
+            android:writePermission="aa.bb.cc.write">
+            
+        </provider>
+    </application>
+
+</manifest>
